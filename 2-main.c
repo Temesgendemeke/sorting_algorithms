@@ -18,8 +18,4 @@ int main(void)
     printf("\n");
     print_array(array, n);
     return (0);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3c7e84bd63cbb30dfe6186c634eb478c7db17032
