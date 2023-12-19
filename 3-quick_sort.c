@@ -8,7 +8,7 @@ void quick_sort(int *array, size_t size)
 {
     int pivot = array[size - 1];
     size_t i, j;
-
+    
     if (size <= 0)
     {
         return;
