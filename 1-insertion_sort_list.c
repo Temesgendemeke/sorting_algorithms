@@ -1,29 +1,49 @@
 #include "sort.h"
 
+/*
+ * insertion_sort_list - function that inserts innan algorithm
+ * @list: list of algorithm
+ * Return: void
+ */
+
 void insertion_sort_list(listint_t **list)
 {
-    if (*list == NULL || (**list).next == NULL)
-    {
-        return;
-    }
+	listint_t *sorted = NULL;
+	listint_t *current;
 
-    listint_t *current = *list;
-    
-    while (current != NULL)
-    {
-        listint_t *key = current->next->n;
-        size_t j = current->prev;
+	if (*list == NULL || (*list)->next == NULL)
+		return;
+	current = *list;
 
-        while (current->n > key && current->prev != NULL)
-        {
+	while (current != NULL)
+	{
+		listint_t *next = current->next;
 
-            current->next->n = current->n;
-            current = current->prev;
-        }
-        current->next->n = key;
-        
-    }
-    
+		 if (sorted == NULL || sorted->n >= current->n)
+		 {
+			 current->next = sorted;
+			 current->prev = NULL;
 
-    
+			 if (sorted != NULL)
+				 sorted->prev = current;
+			 sorted = current;
+		 }
+		 else
+		 {
+			 listint_t *temp = sorted;
+			 while (temp->next != NULL && temp->next->n < current->n)
+				 temp = temp->next;
+
+			 current->next = temp->next;
+			 current->prev = temp;
+
+			 if (temp->next != NULL)
+				 temp->next->prev = current;
+
+			 temp->next = current;
+		 }
+		 print_list(sorted);
+		 current = next;
+	}
+	*list = sorted;
 }
