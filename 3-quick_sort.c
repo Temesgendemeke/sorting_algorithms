@@ -6,28 +6,47 @@
  */
 void quick_sort(int *array, size_t size)
 {
-    int pivot = array[size - 1];
-    size_t i, j;
-    
-    if (size <= 0)
-    {
-        return;
-    }
-
-    for(i = 0; i < size - 1; i++)
-    {
-        pivot = array[size - i - 1];
-        for(j = 0; j < size - 1; j++)
-        {
-            if(pivot <= array[j] && array[j] >= array[j + 1])
-            {
-            int temp = array[j];
-            array[j] = array[j + 1];
-            array[j + 1] = temp;
-            }
-            print_array(array, size);
-        }
+        quick_req(array, 0, size -1);
         
+}
+
+void quick_req(int *array, int low, int high)
+{
+    if (low < high)
+    {
+    int part = partition(array, low, high);
+
+    quick_req(array, low, part - 1);
+    quick_req(array,part + 1, high);
     }
     
+}
+
+int partition(int *array, int low, int high)
+{
+   int i = low;
+   int j;
+   int pivot = array[high];
+
+   for (j = low; j < high; j++)
+   {
+       if (pivot >= array[j])
+       {
+        swap(&array[i], &array[j]);
+        
+        i++;
+       }
+       
+   }
+   swap(&array[i], &array[high]);
+   print_array(array,high + 1);
+   return i;
+}
+
+void swap(int *a, int *b)
+{
+	int temp = *a;
+
+	*a = *b;
+	*b = temp;
 }
