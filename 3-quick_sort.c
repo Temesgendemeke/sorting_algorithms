@@ -8,6 +8,7 @@ void quick_sort(int *array, size_t size)
 {
         quick_req(array, 0, size -1);
         
+        
 }
 
 void quick_req(int *array, int low, int high)
@@ -18,6 +19,7 @@ void quick_req(int *array, int low, int high)
 
     quick_req(array, low, part - 1);
     quick_req(array,part + 1, high);
+    
     }
     
 }
@@ -30,16 +32,17 @@ int partition(int *array, int low, int high)
 
    for (j = low; j < high; j++)
    {
+       
        if (pivot >= array[j])
        {
         swap(&array[i], &array[j]);
-        
+        print_array(array, high + 1);
         i++;
        }
-       
+      
    }
    swap(&array[i], &array[high]);
-   print_array(array,high + 1);
+   
    return i;
 }
 
