@@ -1,7 +1,6 @@
 #include "sort.h"
-
-/*
- * insertion_sort_list - function that inserts innan algorithm.
+/**
+ * insertion_sort_list  - function that inserts innan algorithm.
  * @list: list of algorithm
  * Return: void
  */
