@@ -36,6 +36,13 @@ void merge(int *array, size_t left, size_t mid, size_t right);
 void heap_sort(int *array, size_t size);
 void heapify(int *array, size_t size, size_t i);
 void quick_sort_hoare(int *array, size_t size);
+void countSort(int *array, size_t size, int exp);
+int getMax(int *array, size_t size);
+void radix_sort(int *array, size_t size);
+void bitonic_sort(int *array, size_t size);
+void bitonic_recursive(int *array, size_t size, int dir);
+void bitonic_merge(int *array, size_t size, int dir);
+void compare_and_swap(int *array, size_t i, size_t j, int dir);
 
 #endif
 
